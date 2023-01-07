@@ -2,6 +2,13 @@
 
 namespace university_backent.Models.DataModels
 {
+    public enum Leavel
+    {
+        Basic,
+        Medium,
+        Advanced,
+        Expert
+    }
     public class curso : BaseEntity
     {
         [Required, StringLength(50)]
@@ -23,7 +30,17 @@ namespace university_backent.Models.DataModels
         public string requicitos { get; set; } = string.Empty;
 
         [Required]
-        public int nivel { get; set; }
+        public Leavel nivel { get; set; } = Leavel.Basic;
+
+        [Required]
+        public Chapter chapter { get; set; } = new Chapter();
+
+        [Required]
+
+        public ICollection<Category> categories { get; set; } = new List<Category>();
+
+        [Required]
+        public ICollection<Student> students { get; set; } = new List<Student>();
 
     }
 }

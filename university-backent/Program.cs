@@ -1,8 +1,14 @@
 
 using Microsoft.EntityFrameworkCore;
 using university_backent.dataAccess;
+using Microsoft.Extensions.DependencyInjection;
+using university_backent.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<university_backentContext>(options =>
+
+    options.UseSqlServer(builder.Configuration.GetConnectionString("university_backentContext") ?? throw new InvalidOperationException("Connection string 'university_backentContext' not found.")));
 
 const String CONNECTIONNAME = "UniversityDB";  
 var conectionString = builder.Configuration.GetConnectionString(CONNECTIONNAME);

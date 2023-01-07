@@ -12,5 +12,8 @@ namespace university_backent.dataAccess
 
         public DbSet<User>? Users { get; set; }
         public DbSet<curso> Cursos { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Chapter> Chapters { get; set; }
     }
 }
